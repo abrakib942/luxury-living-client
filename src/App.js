@@ -1,13 +1,19 @@
 import "./App.css";
 import Navbar from "./Shared/Navbar";
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home/Home";
 
 function App() {
   return (
     <div>
       <Navbar />
 
-      <Routes></Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

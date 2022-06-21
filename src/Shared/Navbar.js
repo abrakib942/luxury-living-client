@@ -24,9 +24,14 @@ const Navbar = () => {
   ];
 
   return (
-    <div class="navbar bg-base-100 px-16 sticky top-0 z-20">
-      <div class="navbar-start">
-        <div class="dropdown">
+    <div class="navbar bg-[#F6F6F6] lg:px-16 sticky top-0 z-20">
+      <div className="navbar-start">
+        <Link to="/" class="btn btn-ghost normal-case text-xl">
+          <img className="w-32" src={logo} alt="" />
+        </Link>
+      </div>
+      <div class="navbar-end">
+        <div class=" dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,20 +53,19 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {menuItems}
-            <Link to="/login" class="btn">
+            <Link to="/login" class="btn btn-primary">
               Login
             </Link>
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl">
-          <img className="w-32" src={logo} alt="" />
-        </a>
       </div>
       <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0 font-semibold">{menuItems}</ul>
+        <ul class="menu menu-horizontal gap-2 mr-28 p-0 font-semibold">
+          {menuItems}
+        </ul>
       </div>
       <div class="navbar-end lg:flex hidden">
-        <Link to="/login" class="btn">
+        <Link to="/login" class="btn px-12 btn-primary text-white mr-12">
           Login
         </Link>
       </div>
