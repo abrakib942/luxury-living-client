@@ -8,7 +8,7 @@ const Banner = () => {
         background: "#F6F6F6",
       }}
     >
-      <div class="hero py-12 lg:px-32">
+      <div class="hero py-12 px-12 lg:px-32">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <img
             src={banner}
@@ -16,12 +16,12 @@ const Banner = () => {
             alt=""
           />
           <div className="lg:mr-10">
-            <h1 class="text-5xl font-bold">
+            <h1 class="text-5xl font-bold text-neutral">
               We Build <br /> Your Dream
             </h1>
             <p class="py-4">
-              Online Easte Agency, the mordern way to sell your own home, You
-              can use Griffin Residential to market your property
+              Online Easte Agency, the mordern way to sell your own home, <br />{" "}
+              You can use Griffin Residential to market your property
             </p>
             <button class="btn btn-primary text-white px-12">Booking</button>
           </div>
