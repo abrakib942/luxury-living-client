@@ -14,10 +14,13 @@ const Services = () => {
       </h2>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 justify-items-center mt-16 lg:px-32">
-        {services.map((service) => (
+        {services?.map((service) => (
           <Service key={service._id} service={service}></Service>
         ))}
       </div>
+      <button className="btn btn-primary text-white block mx-auto my-12">
+        Explore more{" "}
+      </button>
     </div>
   );
 };
