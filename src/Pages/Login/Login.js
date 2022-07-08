@@ -4,7 +4,7 @@ import google from "../../assets/Icon/google.png";
 
 const Login = () => {
   return (
-    <div className="h-screen mt-24 px-8">
+    <div className=" mt-24 px-8">
       <h2 className="text-xl text-center font-bold">Login With</h2>
       <button className="input input-bordered rounded-3xl block mx-auto font-semibold mt-6">
         {" "}
@@ -15,7 +15,7 @@ const Login = () => {
       </button>
       <p className="text-center mt-3">
         Don't have an account?{" "}
-        <Link className="text-primary font-semibold decoration" to="/signup">
+        <Link className="link link-primary font-semibold" to="/signup">
           Create an account
         </Link>
       </p>
