@@ -1,8 +1,17 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import auth from "../firebase.init";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const logOut = () => {
+    signOut(auth);
+  };
+
   const menuItems = [
     <>
       <li>
@@ -53,9 +62,20 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {menuItems}
-            <Link to="/login" class="btn btn-primary">
-              Login
-            </Link>
+            {user ? (
+              <>
+                <div class="flex items-center">
+                  <p className="text-primary font-bold">{user.displayName}</p>
+                  <button onClick={logOut} className="btn btn-ghost font-bold">
+                    Log Out
+                  </button>
+                </div>
+              </>
+            ) : (
+              <Link to="/login" class="btn px-12 btn-primary text-white mr-12">
+                Login
+              </Link>
+            )}
           </ul>
         </div>
       </div>
@@ -65,9 +85,18 @@ const Navbar = () => {
         </ul>
       </div>
       <div class="navbar-end lg:flex hidden">
-        <Link to="/login" class="btn px-12 btn-primary text-white mr-12">
-          Login
-        </Link>
+        {user ? (
+          <>
+            <p className="text-primary font-bold">{user.displayName}</p>
+            <button onClick={logOut} className="btn btn-ghost">
+              Log Out
+            </button>
+          </>
+        ) : (
+          <Link to="/login" class="btn px-12 btn-primary text-white mr-12">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
