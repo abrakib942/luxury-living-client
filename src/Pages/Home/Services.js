@@ -1,10 +1,15 @@
 import { useQuery } from "react-query";
+import Loading from "../../Shared/Loading";
 import Service from "./Service";
 
 const Services = () => {
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("services.json").then((res) => res.json())
+    fetch("http://localhost:5000/service").then((res) => res.json())
   );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="">

@@ -1,4 +1,5 @@
 import React from "react";
+import shop from "../../assets/Icon/shop.png";
 
 const Service = ({ service }) => {
   const { img, name, description, price } = service;
@@ -14,6 +15,9 @@ const Service = ({ service }) => {
             ${price}
           </h2>
           <p className="text-center text-[#606268]">{description}</p>
+          <button className="btn btn-outline btn-primary mt-4 font-bold ">
+            <img className="w-5 mr-1" src={shop} alt="" /> Book Now
+          </button>
         </div>
       </div>
     </div>

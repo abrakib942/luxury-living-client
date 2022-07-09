@@ -1,12 +1,13 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import auth from "../firebase.init";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const { pathname } = useLocation();
 
   const logOut = () => {
     signOut(auth);
@@ -29,11 +30,27 @@ const Navbar = () => {
       <li>
         <Link to="/admin">Admin</Link>
       </li>
+
+      <li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
     </>,
   ];
 
   return (
     <div class="navbar bg-[#F6F6F6] lg:px-16 sticky top-0 z-20">
+      {pathname.includes("/dashboard") && (
+        <label htmlFor="my-drawer-2" className="btn btn-ghost lg:hidden">
+          <svg
+            className="swap-off fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 512 512"
+          >
+            <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+          </svg>
+        </label>
+      )}
+
       <div className="navbar-start">
         <Link to="/" class="btn btn-ghost normal-case text-xl">
           <img className="w-32" src={logo} alt="" />
