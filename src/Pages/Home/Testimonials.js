@@ -58,6 +58,9 @@ const Testimonials = () => {
                 fullSymbol={
                   <FontAwesomeIcon icon={faStar} className="text-[#FFAC0C]" />
                 }
+                emptySymbol={
+                  <FontAwesomeIcon icon={faStar} className="text-gray-400" />
+                }
                 readonly
               />
             </div>
