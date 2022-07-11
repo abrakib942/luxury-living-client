@@ -9,7 +9,7 @@ const SignUp = () => {
       <div className="card w-[450px] shadow-xl mx-auto my-auto">
         <button className="input input-bordered rounded-3xl block mx-auto font-semibold ">
           {" "}
-          <div className=" flex items-cente px-10">
+          <div className=" flex items-center px-10">
             <img className="w-7 mr-6" src={google} alt="" />
             Continue With Google
           </div>

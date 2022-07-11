@@ -6,6 +6,9 @@ import Footer from "./Shared/Footer";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/Login/SignUp";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Book from "./Pages/Dashboard/Book";
+import BookingList from "./Pages/Dashboard/BookingList";
+import Review from "./Pages/Dashboard/Review";
 
 function App() {
   return (
@@ -16,10 +19,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
 
-      <Footer />
+        {/* nested */}
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="book/:id" element={<Book />} />
+          <Route path="book" element={<Book />} />
+          <Route path="booking-list" element={<BookingList />} />
+          <Route path="add-review" element={<Review />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

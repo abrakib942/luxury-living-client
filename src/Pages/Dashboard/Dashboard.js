@@ -6,18 +6,15 @@ import review from "../../assets/Icon/review.png";
 
 const Dashboard = () => {
   return (
-    <div className="">
+    <div className="bg-white">
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
-          <h2 className="text-2xl font-bold text-orange-500 text-center my-8">
-            Dashboard
-          </h2>
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side mt-16">
+        <div className="drawer-side mt-10">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 overflow-y-auto w-80">
+          <ul className="menu p-4 overflow-y-auto w-52">
             {/* <!-- Sidebar content here --> */}
             <li className="font-semibold text-primary">
               <NavLink to="/dashboard/book">
@@ -32,7 +29,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li className="font-semibold text-primary">
-              <NavLink to="/dashboard/add-product">
+              <NavLink to="/dashboard/add-review">
                 <img className="w-5 mr-1" src={review} alt="" /> Review
               </NavLink>
             </li>
