@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import banner from "../../assets/Image/banner.png";
 
 const Banner = () => {
@@ -23,7 +24,9 @@ const Banner = () => {
               Online Easte Agency, the mordern way to sell your own home, <br />{" "}
               You can use Griffin Residential to market your property
             </p>
-            <button class="btn btn-primary text-white px-12">Booking</button>
+            <Link to="/service" class="btn btn-primary text-white px-12">
+              Booking
+            </Link>
           </div>
         </div>
       </div>

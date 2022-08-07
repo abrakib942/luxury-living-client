@@ -18,11 +18,11 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/about">About us</Link>
-      </li>
+      </li> */}
       <li>
-        <Link to="/project">Projects</Link>
+        <Link to="/service">Services</Link>
       </li>
       <li>
         <Link to="/contact">Contact</Link>
@@ -31,7 +31,9 @@ const Navbar = () => {
         <Link to="/admin">Admin</Link>
       </li>
 
-      <li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
     </>,
   ];
 

@@ -1,14 +1,34 @@
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 import Service from "./Service";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchServices } from "../../redux/slices/serviceSlice";
 
 const Services = () => {
-  const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
-  );
+  // const { data: services, isLoading } = useQuery("services", () =>
+  //   fetch("http://localhost:5000/service").then((res) => res.json())
+  // );
+
+  const { isLoading, services, error } = useSelector((state) => state.services);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchServices());
+  }, [dispatch]);
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (error) {
+    return (
+      <>
+        <h2 className="text-2xl text-red-500">Error</h2>
+      </>
+    );
   }
 
   return (
@@ -19,13 +39,15 @@ const Services = () => {
       </h2>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 justify-items-center mt-16 lg:px-32">
-        {services?.map((service) => (
+        {services?.slice(0, 3).map((service) => (
           <Service key={service._id} service={service}></Service>
         ))}
       </div>
-      <button className="btn btn-primary text-white block mx-auto my-12">
-        Explore more{" "}
-      </button>
+      <div className="text-center">
+        <Link to="/service" className="btn btn-primary text-white my-12">
+          Explore more{" "}
+        </Link>
+      </div>
     </div>
   );
 };

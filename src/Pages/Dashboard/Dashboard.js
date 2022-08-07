@@ -17,10 +17,10 @@ const Dashboard = () => {
           <ul className="menu p-4 overflow-y-auto w-52">
             {/* <!-- Sidebar content here --> */}
             <li className="font-semibold text-primary">
-              <NavLink to="/dashboard/book">
+              {/* <NavLink to="/dashboard/book/:id">
                 <img className="w-5" src={shop} alt="" />
                 Book
-              </NavLink>
+              </NavLink> */}
             </li>
 
             <li className="font-semibold text-primary">
